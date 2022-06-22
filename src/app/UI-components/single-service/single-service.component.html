@@ -1,0 +1,27 @@
+<div id="portfolio" class="our-portfolio section">
+    <div class="container">
+      <div class="row" *ngIf="isSingleServiceHeader">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading  wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
+            <h2>See What Dope Digital <em>Offers</em> &amp; What We <span>Provide</span></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="align-items:center">
+        <div class="col-lg-3 col-sm-6" *ngFor="let service of serviceArray" style="margin-bottom: 7rem;">
+          <a (click)="onNavigate(service)">
+            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+              <div class="hidden-content">
+                <h4 [innerHtml]="service.subHeader"></h4>
+                <p [innerHtml]="service.subTitle"></p>
+              </div>
+              <div class="showed-content">
+                <img [src]="service.imgSrc" [alt]="service.subHeader">
+                <p [innerHTML]="service.name.toUpperCase()">SEO</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>

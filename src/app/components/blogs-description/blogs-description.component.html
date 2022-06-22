@@ -1,0 +1,160 @@
+<app-header></app-header>
+<!-- <section class="single-page-header blog">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 [innerHTML]="blog?.header ? blog?.header: 'Blog'"></h2>
+				<ol class="breadcrumb header-bradcrumb">
+				 
+				</ol>
+			</div>
+		</div>
+	</div>
+</section> -->
+
+<!-- blog details part start -->
+<section class="blog-details section" style="margin-top:2rem">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <article class="post">
+          <div class="post-image">
+            <img class="img-fluid w-100" [src]="blog?.imgSrc" [alt]="blog?.title">
+          </div>
+          <!-- Post Content -->
+          <div class="post-content">
+            <h3>{{ blog?.title }}.</h3>
+            <!-- <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="#">Admin</a>&nbsp;/
+              </li>
+              <li class="list-inline-item">
+                <a href="#">30 comments</a>&nbsp;/
+              </li>
+              <li class="list-inline-item">
+                <a href="#">30 likes</a>
+              </li>
+            </ul> -->
+            <div *ngFor="let fact of blog?.otherFacts">
+                <p [innerHTML]="fact.fact"></p>
+            </div>
+          </div>
+        </article>
+        <article class="post">
+          <div class="post-content">
+            <h3>{{ blog?.subTitles[0] }}.</h3>
+           
+            <div *ngFor="let fact of blog?.subTitleFacts">
+                <p [innerHTML]="fact.fact"></p>
+            </div>
+            <div style="margin-left:4%;" *ngFor="let points of blog?.subTitleFactPoints; let i= index;">
+             
+               <ol type="1" id="containerIntro" class="list-inline"  >
+                
+              <b>{{ i+1 }}. <li class="list-inline-item" [innerHTML]="points.title">
+              </li> : </b>
+              <p [innerHTML]="points.point"></p>
+              <a *ngIf="points.imgSrc" class="boxout2 progressive replace" style="height: 250px; width: 250px;">
+                <img style="height: 100%; width: 100%;" [src]="points.imgSrc" class="preview" loading="lazy" width="20" height="15" alt="jump" />
+              </a>
+            </ol>
+             
+              
+          </div>
+            <!-- blockquote -->
+            <article class="post" style="margin-top:6%">
+              <!-- <h4>Final Notes</h4> -->
+              <div *ngFor="let note of blog?.finalNotes">
+                <p data-aos="fade-left" data-aos-duration="1000" [innerHTML]="note.finalNote"></p>
+              </div>
+            </article>
+            <!-- <p>Occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Seper spiciatis
+              unde omnis natus error sit voluptatem accusantium doloremque laudantium totam rem. aperiam eaque ipsa quae
+              ab illo inventore veritatis.</p> -->
+            <!-- post share -->
+            <!-- <ul class="post-content-share list-inline">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="tf-ion-social-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="tf-ion-social-linkedin"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="tf-ion-social-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="tf-ion-social-skype"></i>
+                </a>
+              </li>
+            </ul> -->
+            
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4">
+        <!-- sidebar -->
+        <aside class="sidebar">
+          <!-- <div class="widget-search widget">
+            <form action="#">
+              <input class="form-control" type="text" placeholder="Search..." name="search">
+              <button type="submit" class="widget-search-btn">
+                <i class="tf-ion-ios-search"></i>
+              </button>
+            </form>
+          </div> -->
+          <!-- <div class="widget-categories widget">
+            <h2>Categories</h2>
+            <ul class="widget-categories-list">
+              <li>
+                <a href="#">Financial Advise</a>
+              </li>
+              <li>
+                <a href="#">Businee Growth</a>
+              </li>
+              <li>
+                <a href="#">Investment Marketing</a>
+              </li>
+              <li>
+                <a href="#">Business Consulting</a>
+              </li>
+              <li>
+                <a href="#">Advanced Analytics</a>
+              </li>
+              <li>
+                <a href="#">Investment Marketing</a>
+              </li>
+            </ul>
+          </div> -->
+          <div class="widget-post widget">
+            <h2>Latest Posts</h2>
+            <!-- latest post -->
+            <ul class="widget-post-list" *ngFor="let blog of latestBlogs">
+              <li class="widget-post-list-item">
+                <div class="widget-post-image">
+                  <a (click)="onNavigate(blog)">
+                    <img src="{{ blog?.imgSrc }}" alt="{{ blog?.title }}">
+                  </a>
+                </div>
+                <div class="widget-post-content">
+                  <a (click)="onNavigate(blog)">
+                    <h5 [innerHTML]="blog?.title"></h5>
+                  </a>
+                  <h6>{{ blog.dateOfCreatingBlog }}</h6>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- blog details part end -->
+<app-footer></app-footer>

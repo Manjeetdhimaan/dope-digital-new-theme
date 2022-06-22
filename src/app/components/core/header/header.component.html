@@ -1,0 +1,55 @@
+<header class="header-area header-sticky wow slideInDown" [ngClass]="{'background-header' : isSticky}"
+  data-wow-duration="0.75s" data-wow-delay="0s">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav navbar">
+          <!-- ***** Logo Start ***** -->
+          <a class="logo" routerLink="/" (click)="onNavigate('/')" style="padding:0 0 10px 0;">
+            <img src="assets/logo/dope-digital-2.png" alt="Offical Logo">
+            <!-- <h4>Dope<span>Digital</span></h4> -->
+          </a>
+          <!-- ***** Logo End ***** -->
+          <!-- ***** Menu Start ***** -->
+          <ul class="nav mobile-menu" style="display:block" [ngStyle]="{'display': isMobileMenu? 'block':'none'}">
+            <li class="scroll-to-section"><a routerLink="/" class="link" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}" (click)="onNavigate('/')">Home</a></li>
+            <li ><a class="link" routerLink="/about" routerLinkActive="active" (click)="onNavigate('/about')">About Us</a>
+            </li>
+            <li class="dropdown"><a class="nav-link link" routerLinkActive="active">Services <i id="new"
+                  class="fa fa-chevron-down"></i></a>
+              <ul class="ul">
+                <li routerLink="/services" (click)="onNavigate('/services')"> <button class="dropdown-item "
+                    value="services">Our Services</button></li>
+                <li (click)="onNavigateToService('web-design')">
+                  <button class="dropdown-item">Web Design</button>
+                </li>
+                <li (click)="onNavigateToService('social-media-management')">
+                  <button class="dropdown-item" value="Social Media Influencer">Social Media Management</button>
+                </li>
+                <li (click)="onNavigateToService('seo')"><button class="dropdown-item">Search Engine
+                    Optimization</button></li>
+                <li (click)="onNavigateToService('youtube-marketing')"><button class="dropdown-item">You Tube
+                    Marketing</button></li>
+                <li (click)="onNavigateToService('paid-Ad-management')"><button class="dropdown-item">Paid Ad
+                    Management</button></li>
+                <li (click)="onNavigateToService('logo-design')"><button class="dropdown-item">Logo and Graphic
+                    design</button></li>
+              </ul>
+            </li>
+            <li class="scroll-to-section"><a class="link"routerLink="/blogs" routerLinkActive="active"
+                (click)="onNavigate('/blogs')">Blogs</a></li>
+            <li class="scroll-to-section">
+              <div class="main-red-button"><a routerLink="/contact" (click)="onNavigate('/contact')">Contact Now</a>
+              </div>
+            </li>
+          </ul>
+          <div class='menu-trigger' (click)="onToggleMobileMenu()">
+            <span>Menu</span>
+          </div>
+          <!-- ***** Menu End ***** -->
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
