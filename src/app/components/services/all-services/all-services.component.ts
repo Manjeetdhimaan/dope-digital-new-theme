@@ -10,7 +10,7 @@ import { Meta } from '@angular/platform-browser';
 })
 export class AllServicesComponent implements OnInit {
 
-  constructor(private dataService: DataService, private router: Router,private meta: Meta) { }
+  constructor(private dataService: DataService, private router: Router) { }
   service:any;
   isLoading:boolean = false;
   serviceArray:any[];
@@ -23,8 +23,6 @@ export class AllServicesComponent implements OnInit {
       if (this.router.url.toLowerCase() == "/" + a.name.toLowerCase().split(' ').join('-')) {
         this.router.url.toLowerCase();
         this.service = a;
-        
-        this.meta.updateTag({ property: 'og:url', content: `https://www.dopedigital.in//${a.name.toLowerCase().split(' ').join('-')}` });
           this.isLoading = false
         
       }

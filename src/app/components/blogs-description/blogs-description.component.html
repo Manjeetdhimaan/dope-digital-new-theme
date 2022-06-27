@@ -16,8 +16,8 @@
 <section class="blog-details section" style="margin-top:2rem">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8">
-        <article class="post">
+      <div class="col-lg-8 wow fadeInLeft bounceIn">
+        <article class="post " >
           <div class="post-image">
             <img class="img-fluid w-100" [src]="blog?.imgSrc" [alt]="blog?.title">
           </div>
@@ -132,7 +132,7 @@
               </li>
             </ul>
           </div> -->
-          <div class="widget-post widget">
+          <div class="widget-post widget wow fadeInRight bounceIn">
             <h2>Latest Posts</h2>
             <!-- latest post -->
             <ul class="widget-post-list" *ngFor="let blog of latestBlogs">

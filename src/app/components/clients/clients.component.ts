@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientsService } from 'src/app/services/clients.service';
 
 @Component({
   selector: 'app-clients',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private clientService: ClientsService) { }
 
+  clientsArray: any[] = [];
+  isClientComponent:boolean = true;
+  
   ngOnInit(): void {
+   this.clientsArray = this.clientService.clientsArray;
+   console.log(this.clientService.clientsArray.length)
   }
 
 }

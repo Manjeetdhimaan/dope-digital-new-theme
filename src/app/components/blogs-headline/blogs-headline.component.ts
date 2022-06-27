@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BlogsService } from 'src/app/services/blogs.service';
 import { Router } from '@angular/router';
+import { Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-blogs-headline',
   templateUrl: './blogs-headline.component.html',
@@ -11,6 +12,7 @@ export class BlogsHeadlineComponent implements OnInit {
   constructor(private blogService: BlogsService, private router: Router) { }
   @Input() isHeaderFooter:boolean = true;
   latestBlogs:any[];
+
   ngOnInit(): void {
     this.latestBlogs= this.blogService.getBlogs().slice(-4).reverse();
   }

@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { filter, map } from 'rxjs';
 import { DataService } from './components/services/data.service';
+import { BlogsService } from './services/blogs.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,12 @@ import { DataService } from './components/services/data.service';
 })
 export class AppComponent {
   title = 'dope-digital';
-  constructor(private titleService: Title, private router: Router, private activatedRoute: ActivatedRoute, private dataService: DataService, private metaService: Meta) { }
+  constructor(private titleService: Title, private router: Router, private activatedRoute: ActivatedRoute, private dataService: DataService, private metaService: Meta, private blogService: BlogsService) { }
 
   isSingleService: boolean= false;
+  isBlog: boolean= false;
   ngOnInit() {
+    //updating app title and meta tags.
     const appTitle = this.titleService.getTitle();
     this.router
       .events.pipe(
@@ -26,6 +29,12 @@ export class AppComponent {
               this.isSingleService = true;
             }
           })
+          this.blogService.blogsArray.map((a: any) => {
+            if (this.router.url.toLowerCase() === "/blogs/" + a.title.toLowerCase().split(' ').join('-')) {
+              this.router.url.toLowerCase();
+              this.isBlog = true;
+            }
+          })
 
           //getting name from url 
           let routerUrl_split = this.router.url.slice(1).split("-")
@@ -35,18 +44,34 @@ export class AppComponent {
           }
 
           const child = this.activatedRoute.firstChild;
+          if (child?.snapshot.data['metaUrl'] && !this.isSingleService) {
+            this.metaService.updateTag({ property: 'og:url', content: `https://www.dopedigital.in/${child.snapshot.data['metaUrl']}`});
+          }
+          if (child?.snapshot.data['title']) {
+            if (this.isBlog == true) {
+              this.isBlog = false;
+              child.snapshot.data['title'] = this.capitalizeFirstLetter(this.router.url.slice(7).split('-').join(' ')) + ' - ' + appTitle;
+              this.metaService.updateTag({ property: 'og:url', content: `https://www.dopedigital.in/${this.router.url.slice(1)}`});
+              this.metaService.updateTag({ name: 'description', content: this.capitalizeFirstLetter(this.router.url.slice(7).split('-').join(' ')) });
+              return child.snapshot.data['title'];
+            }
+          }
+
           if (child?.snapshot.data['title']) {
             if (this.isSingleService == true) {
               this.isSingleService = false;
               child.snapshot.data['title'] = this.router.url.slice(1).split('-').join(' ').toUpperCase() + ' - ' + appTitle;
-              this.metaService.updateTag({ name: 'description', content: this.capitalizeFirstLetter(this.router.url.slice(10).split('-').join(' ')) });
+              this.metaService.updateTag({ property: 'og:url', content: `https://www.dopedigital.in/${this.router.url.slice(1)}`});
+              this.metaService.updateTag({ name: 'description', content: this.capitalizeFirstLetter(this.router.url.slice(1).split('-').join(' ')) });
              
               return child.snapshot.data['title'];
             }
             else {
+              this.metaService.updateTag({ name: 'description', content: `Dope digital is best digital marketing agency in Chandigarh`});
               return child.snapshot.data['title']
             }
           }
+          this.metaService.updateTag({ name: 'description', content: `Dope digital is best digital marketing agency in Chandigarh`});
           return appTitle;
         })
         

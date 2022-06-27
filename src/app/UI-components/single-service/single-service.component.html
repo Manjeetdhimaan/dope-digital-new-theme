@@ -1,4 +1,4 @@
-<div id="portfolio" class="our-portfolio section">
+<div id="portfolio" class="our-portfolio section" *ngIf="!isClientComponent">
     <div class="container">
       <div class="row" *ngIf="isSingleServiceHeader">
         <div class="col-lg-6 offset-lg-3">
@@ -10,7 +10,7 @@
       <div class="row" style="align-items:center">
         <div class="col-lg-3 col-sm-6" *ngFor="let service of serviceArray" style="margin-bottom: 7rem;">
           <a (click)="onNavigate(service)">
-            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+            <div class="item wow bounceInUp bounceIn" data-wow-duration="1s" data-wow-delay="0.3s">
               <div class="hidden-content">
                 <h4 [innerHtml]="service.subHeader"></h4>
                 <p [innerHtml]="service.subTitle"></p>
@@ -18,6 +18,35 @@
               <div class="showed-content">
                 <img [src]="service.imgSrc" [alt]="service.subHeader">
                 <p [innerHTML]="service.name.toUpperCase()">SEO</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="portfolio" class="our-portfolio section" *ngIf="isClientComponent">
+    <div class="container clients">
+      <div class="row" *ngIf="isSingleServiceHeader">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading  wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
+            <!-- &amp; What We <span>Provide</span> -->
+            <h2>Check Our <em>Clients</em> </h2>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="align-items:center">
+        <div class="col-lg-3 col-sm-6" style="margin-bottom: 7rem;" *ngFor="let client of clientsArray">
+          <a>
+            <div class="item wow bounceInUp bounceIn" data-wow-duration="1s" data-wow-delay="0.3s">
+              <div class="hidden-content2" style="min-width: 100%">
+                <h4 [innerHtml]="client.name"></h4>
+                <p [innerHtml]="client.profession"></p>
+              </div>
+              <div class="showed-content2">
+                <img [src]="client.imgSrc ? client.imgSrc : noPreviewImgSrc" onerror="this.src='assets/images/clients/no-preview.png'" id="img"  [alt]="client.name" style="max-width: 100%;border-radius:10px;">
+                  <!-- <p [innerHTML]="client.name.toUpperCase()"></p> -->
               </div>
             </div>
           </a>

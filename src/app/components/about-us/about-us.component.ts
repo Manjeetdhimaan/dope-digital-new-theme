@@ -6,11 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./about-us.component.scss']
 })
 export class AboutUsComponent implements OnInit {
-
   constructor() { }
+
   isHeaderFooter= false;
   @Input() isContactComponent:boolean = true;
+
   ngOnInit(): void {
   }
-
 }

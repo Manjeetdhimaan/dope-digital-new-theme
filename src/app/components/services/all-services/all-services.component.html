@@ -3,12 +3,12 @@
 <div id="services" class="our-services section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 align-self-center  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
+        <div class="col-lg-6 align-self-center wow fadeInLeft bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
           <div class="left-image">
             <img [src]="service.imgSrc" [alt]="service.title">
           </div>
         </div>
-        <div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
+        <div class="col-lg-6 wow fadeInRight bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
           <div class="section-heading">
             <h2 [innerHtml]="service.header"></h2>
             <p [innerHTML]="service.title"></p>
@@ -38,7 +38,7 @@
       <div class="row" >
         <div class="col-lg-6 offset-lg-3" style="margin-bottom: -122px">
           <div class="section-heading  wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
-            <h2>See What Other <em>Offers</em> &amp; We <span>Provide</span></h2>
+            <h2>See What Other <em>Services</em>  We <span>Provide</span></h2>
           </div>
         </div>
         <app-single-service [serviceArray]="serviceArray" [isSingleServiceHeader]="isSingleServiceHeader"></app-single-service>
