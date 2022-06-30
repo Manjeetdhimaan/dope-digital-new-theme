@@ -40,7 +40,7 @@ const routes: Routes = [
   },
   
   {
-    path: '**', pathMatch: 'full', redirectTo: ''
+    path: '**', pathMatch: 'full', redirectTo: '404notfound'
   },
 ];
 

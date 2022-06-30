@@ -22,7 +22,7 @@ export class BlogsHeadlineComponent implements OnInit {
       behavior:'smooth',
       top:0
     });
-    const selectedBlog = blog.title.toLowerCase().split(' ').join('-');
+    const selectedBlog = blog.urlTitle.toLowerCase().split(' ').join('-');
     this.router.navigate(['/blogs/', selectedBlog]);
   }
  

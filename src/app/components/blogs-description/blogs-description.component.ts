@@ -21,7 +21,7 @@ export class BlogsDescriptionComponent implements OnInit {
           this.isLoading = true;
           activatedRoute.params.subscribe((param: Params) => {
             this.blogService.getBlogs().map((a: any) => {
-              if (param['blog'].toLowerCase() == a.title.toLowerCase().split(' ').join('-')) {
+              if (param['blog'].toLowerCase() == a.urlTitle.toLowerCase().split(' ').join('-')) {
                 this.blog = a;
                 this.isLoading = false;
                 this.latestBlogs = this.blogService.getBlogs().slice(-8).reverse();
@@ -36,7 +36,7 @@ export class BlogsDescriptionComponent implements OnInit {
     this.isLoading = true;
     this.blogsArray = this.blogService.getBlogs();
     this.blogService.getBlogs().map((a: any) => {
-      if (this.router.url.toLowerCase() == "/blogs/" + a.title.toLowerCase().split(' ').join('-')) {
+      if (this.router.url.toLowerCase() == "/blogs/" + a.urlTitle.toLowerCase().split(' ').join('-')) {
         this.router.url.toLowerCase();
         this.blog = a;
         // let blogs = this.blogService.getBlogs().slice(-10).reverse();
@@ -45,8 +45,8 @@ export class BlogsDescriptionComponent implements OnInit {
         this.isLoading = false;
       }
     })
-    if (this.router.url.toLowerCase() !== "/blogs/" + this.blog?.title.toLowerCase().split(' ').join('-')) {
-      this.router.navigate(['/']);
+    if (this.router.url.toLowerCase() !== "/blogs/" + this.blog?.urlTitle.toLowerCase().split(' ').join('-')) {
+      this.router.navigate(['/404notfound']);
       this.isLoading = false;
     }
   }
@@ -57,7 +57,7 @@ export class BlogsDescriptionComponent implements OnInit {
       top: 0
     });
     this.blog = blog;
-    const selectedBlog = blog.title.toLowerCase().split(' ').join('-');
+    const selectedBlog = blog.urlTitle.toLowerCase().split(' ').join('-');
     this.router.navigate(['/blogs/', selectedBlog]);
   }
 }

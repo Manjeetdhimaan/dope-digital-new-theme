@@ -30,7 +30,7 @@ export class AppComponent {
             }
           })
           this.blogService.blogsArray.map((a: any) => {
-            if (this.router.url.toLowerCase() === "/blogs/" + a.title.toLowerCase().split(' ').join('-')) {
+            if (this.router.url.toLowerCase() === "/blogs/" + a.urlTitle.toLowerCase().split(' ').join('-')) {
               this.router.url.toLowerCase();
               this.isBlog = true;
             }
