@@ -12,10 +12,7 @@ import { ClientsComponent } from './components/clients/clients.component';
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent, data: { metaUrl:''}
-  },
-  { 
-    path: '404notfound', component: PagenotfoundComponent, data: { title: 'Page not Found' } 
+    path: '', component: HomeComponent, data: { metaUrl:'', title: 'Dope Digital'}
   },
   {
     path: 'about', component: AboutUsComponent, data: {title: 'ABOUT - Dope Digital', metaUrl:'about'} 
@@ -38,14 +35,18 @@ const routes: Routes = [
   {
     path: ':services', component: AllServicesComponent, data: {title: 'Services - Dope Digital', metaUrl:'services'}
   },
-  
+  { 
+    path: '404notfound', component: PagenotfoundComponent, data: { title: 'Page not Found' } 
+  },
   {
     path: '**', pathMatch: 'full', redirectTo: '404notfound'
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabledBlocking'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

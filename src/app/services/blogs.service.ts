@@ -149,7 +149,7 @@ export class BlogsService {
       header:`Influencer Marketing`,
       categoryId: 'Influencer Marketing - The New Normal In Digital Space',
       title: `Influencer Marketing - The New Normal In Digital Space`,
-      urlTitle: `The New Normal In Digital Space`,
+      urlTitle: `Influencer Marketing`,
       subTitles:['What is influencer marketing?', 'Why do you need to incorporate influencer marketing into your marketing strategy?'],
       dateOfCreatingBlog:`30 June 2022`,
       imgSrc: "assets/images/blogImages/june2022/influencer-marketing---dopedigital.jpg",

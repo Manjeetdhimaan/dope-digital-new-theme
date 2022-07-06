@@ -35,7 +35,7 @@ import { SingleServiceComponent } from './UI-components/single-service/single-se
     SingleServiceComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule

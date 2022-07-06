@@ -63,18 +63,16 @@ export class AppComponent {
               child.snapshot.data['title'] = this.router.url.slice(1).split('-').join(' ').toUpperCase() + ' - ' + appTitle;
               this.metaService.updateTag({ property: 'og:url', content: `https://www.dopedigital.in/${this.router.url.slice(1)}`});
               this.metaService.updateTag({ name: 'description', content: this.capitalizeFirstLetter(this.router.url.slice(1).split('-').join(' ')) });
-             
               return child.snapshot.data['title'];
             }
             else {
               this.metaService.updateTag({ name: 'description', content: `Dope digital is best digital marketing agency in Chandigarh`});
-              return child.snapshot.data['title']
+              return child.snapshot.data['title'];
             }
           }
           this.metaService.updateTag({ name: 'description', content: `Dope digital is best digital marketing agency in Chandigarh`});
           return appTitle;
         })
-        
       ).subscribe((ttl: string) => {
         this.titleService.setTitle(ttl);
       });
