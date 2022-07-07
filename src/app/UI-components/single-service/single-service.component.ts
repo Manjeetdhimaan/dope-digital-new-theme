@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService } from 'src/app/components/services/data.service';
+import { DataService } from 'src/app/modules/services-module/services/data.service';
 
 @Component({
   selector: 'app-single-service',

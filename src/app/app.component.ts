@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { filter, map } from 'rxjs';
-import { DataService } from './components/services/data.service';
+import { DataService } from './modules/services-module/services/data.service';
 import { BlogsService } from './services/blogs.service';
 
 @Component({

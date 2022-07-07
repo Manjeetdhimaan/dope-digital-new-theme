@@ -1,14 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AboutUsComponent } from './components/about-us/about-us.component';
-import { HomeComponent } from './components/home/home.component';
-import { ServicesComponent } from './components/services/services.component';
-import { AllServicesComponent } from './components/services/all-services/all-services.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { BlogsHeadlineComponent } from './components/blogs-headline/blogs-headline.component';
-import { BlogsDescriptionComponent } from './components/blogs-description/blogs-description.component';
-import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
-import { ClientsComponent } from './components/clients/clients.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './modules/home-module/home/home.component';
+import { ContactComponent } from './modules/contact/contact.component';
+import { PagenotfoundComponent } from './modules/pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   {
@@ -18,25 +12,25 @@ const routes: Routes = [
     path: '404notfound', component: PagenotfoundComponent, data: { title: 'Page not Found' } 
   },
   {
-    path: 'about', component: AboutUsComponent, data: {title: 'ABOUT - Dope Digital', metaUrl:'about'} 
+    path: 'about', loadChildren: () => import('./modules/about/about-module').then(m => m.AboutModule), data: {title: 'ABOUT - Dope Digital', metaUrl:'about'} 
   },
   {
-    path: 'services', component: ServicesComponent, data: {title: 'SERVICES - Dope Digital', metaUrl:'services'}
+    path: 'clients', loadChildren: () => import('./modules/clients-module/clients-module').then(m => m.ClientsModule), data: {title: 'CLIENTS - Dope Digital', metaUrl:'clients'}
   },
   {
-    path: 'blogs', component: BlogsHeadlineComponent, data: {title: 'BLOGS - Dope Digital', metaUrl:'blogs'}
+    path: 'services', loadChildren: () => import('./modules/services-module/services/services-module').then(m => m.ServicesModule), data: {title: 'SERVICES - Dope Digital', metaUrl:'services'}
+  },
+  {
+    path: 'blogs',
+    loadChildren: () => import('./modules/blogs/blogs-module').then(m => m.BlogsModule),
+    data: { title: 'BLOGS - Dope Digital', metaUrl:'blogs' }
   },
   {
     path: 'contact', component: ContactComponent, data: {title: 'CONTACT - Dope Digital', metaUrl:'contact'}
   },
+
   {
-    path: 'clients', component: ClientsComponent, data: {title: 'CLIENTS - Dope Digital', metaUrl:'clients'}
-  },
-  {
-    path: 'blogs/:blog', component: BlogsDescriptionComponent, data: {title: 'BLOGS - Dope Digital', metaUrl:'blogs'}
-  },
-  {
-    path: ':services', component: AllServicesComponent, data: {title: 'Services - Dope Digital', metaUrl:'services'}
+    path: ':services',  loadChildren: () => import('./modules/services-module/services/all-services/all-services.module').then(m => m.AllServicesModule), data: {title: 'Services - Dope Digital', metaUrl:'services'}
   },
   
   {
@@ -45,7 +39,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabledBlocking' }
+)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
