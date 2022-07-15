@@ -1,5 +1,5 @@
-<app-header *ngIf="isHeaderFooter"></app-header>
-<div id="blog" class="our-blog section bottom-margin" >
+<!-- <app-header *ngIf="isHeaderFooter"></app-header> -->
+<div id="blog" class="our-blog section bottom-margin" [ngStyle]="{'margin-top': marginTop }">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 wow" animation="fadeInLeft" delay="100" duration="800" offset="1500" triggerOnce="true">
@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-lg-6 wow" animation="fadeInLeft" delay="100" duration="800" offset="1500" triggerOnce="true">
           <div class="left-image">
-            <a href="#"><img style="height: 60vh;" src="{{ latestBlogs[0].imgSrc }}" alt="Blogs"></a>
+            <a (click)="onNavigate(latestBlogs[0])"><img style="max-height: 60vh;" src="{{ latestBlogs[0].imgSrc }}" alt="Blogs"></a>
             <div class="info">
               <div class="inner-content">
                 <ul>
@@ -38,10 +38,10 @@
           <div class="right-list">
             <ul *ngFor="let blog of latestBlogs.slice(1)">
                 <hr>
-              <li>
-                <div class="left-content align-self-center" (click)="onNavigate(blog)">
+              <li (click)="onNavigate(blog)">
+                <div class="left-content align-self-center" >
                   <span><i class="fa fa-calendar"></i>{{ blog.dateOfCreatingBlog }}</span>
-                  <a ><h4 [innerHtml]="blog.title"></h4></a>
+                  <a><h4 [innerHtml]="blog.title"></h4></a>
                   <!-- <p [innerHtml]="blog.categoryId"></p> -->
                 </div>
                 <div class="right-image">

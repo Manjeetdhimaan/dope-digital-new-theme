@@ -1,117 +1,168 @@
-.thanks {
-    color: green;
+#footer-menus {
+  background: #fff;
+  color: #111
 }
 
-/*=================================================================
-  Footer section
-==================================================================*/
-
-.top-footer {
-    // background-color: #222222;
-    // border-top: 1px solid #404040;
-
-    background-color: #FFA554;
-    border-top: 1px solid #ffa500;
-    padding: 100px 0 80px;
+#footer-menus h4 {
+  font-weight: 400;
+  padding-bottom: .5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid rgba(58, 58, 58, 0.1)
 }
 
-.top-footer h3 {
-    font-size: 16px;
-    line-height: 1.5;
-    // color: #fff;
-    color: #333;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
+#footer-menus ul {
+  margin: 0;
+  padding: 0;
+  list-style: none
 }
 
-.top-footer p {
-    font-size: 13px;
-    line-height: 30px;
-    // color: #bdbdbd;
-    color: #333;
-    font-weight: 300;
-    letter-spacing: 1px;
-    padding-right: 20px;
-    text-align: left;
+#footer-menus ul li {
+  padding: .7rem 0;
+  display: flex;
+  align-items: center
 }
 
-.top-footer li a {
-    font-size: 13px;
-    line-height: 30px;
-    // color: #bdbdbd;
-    color: #555555;
-    font-weight: 300;
-    letter-spacing: 1px;
-    text-transform: capitalize;
-    transition: color 0.3s;
-    font-family: "Source Sans Pro", sans-serif;
-    display: block;
+#footer-menus ul.accred li {
+  min-height: 5rem
 }
 
-.top-footer li a:hover {
-    color: #333;
+#footer-menus ul li img {
+  width: calc(90% - 15px);
+  object-fit: cover
 }
 
-.footer-bottom {
-    text-align: center;
-    background-color: #1b1b1b;
-    border-top: 1px solid #2c2c2c;
-    padding: 30px 0;
+#footer-menus ul.row li {
+  width: 50%
 }
 
-.footer-bottom h5 {
-    font-size: 12px;
-    line-height: 1;
-    color: #888888;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 7px;
-    margin-bottom: 3px;
+#footer-menus ul.row li>div,
+#footer-menus ul.row li>a {
+  width: 100%
 }
 
-.footer-bottom h6 {
-    font-size: 11px;
-    line-height: 15px;
-    color: #888888;
-    font-weight: 400;
-    text-transform: capitalize;
-    letter-spacing: 2px;
-    margin-bottom: 0;
+ul.recent-blog a {
+  width: 100%
 }
 
-.footer-bottom a {
-    color: #ffa500;
+#footer-menus ul.recent-blog img {
+  height: 62px;
+  width: calc(36% - 15px);
+  margin-right: 2rem;
+  border-radius: 5px
 }
 
-.page-404 {
+#footer-menus ul.recent-blog .content {
+  width: calc(64% - 15px)
+}
+
+#footer-menus ul.recent-blog .content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1;
+  color: #111
+}
+
+#footer-menus ul.recent-blog .content span {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #111
+}
+
+
+#footer-menus svg {
+  width: 20px;
+  fill: url(#svgGradient);
+  display: inline-block;
+  margin-right: 2rem
+}
+
+#footer-menus a {
+  display: flex;
+  align-items: center;
+  color: #111
+}
+
+#footer-menus a:hover {
+  opacity: .5
+}
+
+#copyright {
+  background: #fff;
+  padding: 0 2%;
+  font-size: 1.4rem
+}
+
+#copyright p {
+  color: #111
+}
+
+#copyright .links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-flex;
+  align-items: center
+}
+
+#copyright .links li {
+  padding: 0 1rem;
+  line-height: 1
+}
+
+#copyright .links li:not(:first-child) {
+  border-left: 2px solid #717171
+}
+
+#copyright .links li a {
+  color: gray
+}
+
+#copyright .links li a:hover {
+  color: #f6f6f6
+}
+
+#copyright .social {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-flex;
+  align-items: center
+}
+
+@media(max-width:41.6775em) {
+  #copyright .social {
     display: flex;
-    align-items: center;
-    height: 100vh;
+    margin-top: 0;
+    justify-content: space-around
+  }
 }
 
-.page-404 h1 {
-    font-size: 200px;
+#copyright .social svg {
+  height: 1.2rem;
+  fill: #717171;
+  transition: inherit
 }
 
-@media (max-width: 575px) {
-    .top-footer h3 {
-        margin-bottom: 0;
-    }
-    .top-footer p,
-    .top-footer ul {
-        margin-bottom: 25px;
-    }
-    .top-footer {
-        padding-bottom: 10px;
-    }
+#copyright .social svg:hover {
+  // fill: #ff1053;
+  fill: #ffa500
 }
 
-@media (min-width: 575px) and (max-width: 991px) {
-    .top-footer p {
-        line-height: 20px;
-    }
+@media(min-width:41.6875em) {
+  #copyright .social li:not(:first-child) {
+    margin-left: 2.5rem
+  }
 }
 
+#copyright .social li a {
+  display: block
+}
+
+footer p {
+  text-align: left;
+  color: #f6f6f6;
+}
+
+.col-12 {
+  margin-bottom: 2rem;
+}

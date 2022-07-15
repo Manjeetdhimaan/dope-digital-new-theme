@@ -6,10 +6,7 @@ import { PagenotfoundComponent } from './modules/pagenotfound/pagenotfound.compo
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent, data: { metaUrl:''}
-  },
-  { 
-    path: '404notfound', component: PagenotfoundComponent, data: { title: 'Page not Found' } 
+    path: '', component: HomeComponent, data: { metaUrl:'', title: 'Dope Digital'}
   },
   {
     path: 'about', loadChildren: () => import('./modules/about/about-module').then(m => m.AboutModule), data: {title: 'ABOUT - Dope Digital', metaUrl:'about'} 
@@ -32,7 +29,9 @@ const routes: Routes = [
   {
     path: ':services',  loadChildren: () => import('./modules/services-module/services/all-services/all-services.module').then(m => m.AllServicesModule), data: {title: 'Services - Dope Digital', metaUrl:'services'}
   },
-  
+  { 
+    path: '404notfound', component: PagenotfoundComponent, data: { title: 'Page not Found' } 
+  },
   {
     path: '**', pathMatch: 'full', redirectTo: '404notfound'
   },

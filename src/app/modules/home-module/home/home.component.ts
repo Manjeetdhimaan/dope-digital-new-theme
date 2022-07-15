@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   isHeaderFooter = false;
   isContactComponent= false;
   serviceArray:any[];
+  marginTop= '-40px'
+
   ngOnInit(): void {
     this.serviceArray= this.dataService.serviceArray.slice(0,4)
   }

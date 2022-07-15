@@ -1,5 +1,5 @@
-<app-header *ngIf="isContactComponent"></app-header>
-<div id="about" class="about-us section" >
+<!-- <app-header *ngIf="isContactComponent"></app-header> -->
+<div id="about" class="about-us section" animation="fadeInUp" delay="100" duration="800" offset="1500" triggerOnce="true">
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
@@ -64,6 +64,4 @@
   <div class="contact">
     <app-contact [isHeaderFooter]="isHeaderFooter" *ngIf="isContactComponent"></app-contact>
   </div>
-
-  
   <app-footer *ngIf="isContactComponent"></app-footer>

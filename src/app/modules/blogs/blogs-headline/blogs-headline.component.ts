@@ -15,6 +15,7 @@ export class BlogsHeadlineComponent implements OnInit {
   ngOnInit(): void {
     this.latestBlogs= this.blogService.getBlogs().slice(-4).reverse();
   }
+  @Input() marginTop = '80px';
 
   onNavigate(blog:any) {
     window.scrollTo({

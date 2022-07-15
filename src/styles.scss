@@ -938,7 +938,7 @@ Banner Style
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding: 226px 0px 0px 0px;
+  padding: 160px 0px 0px 0px;
   position: relative;
   overflow: hidden;
 }
@@ -1047,11 +1047,11 @@ About Us Style
 */
 
 #about {
-  margin-top: 120px;
+  margin-top: 100px;
 }
 
 .about-us {
-  background-image: url(assets/images/about-bg.png);
+  background-image: url(assets/images/abstract-blue-and-orange-wave-background-free-vector.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1077,14 +1077,16 @@ About Us Style
 }
 
 .about-us .services .item h4 {
-  color: #fff;
+  // color: #fff;
+  color: #333;
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
 .about-us .services .item p {
-  color: #fff;
+  // color: #fff;
+  color: #333;
 }
 
 
@@ -1308,7 +1310,7 @@ Blog
   background-color: #fff;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  margin-right: 75px;
+  // margin-right: 75px;
   position: absolute;
   margin-top: -100px;
   padding: 30px;
@@ -1392,8 +1394,8 @@ contact
 */
 
 .contact-us {
-  padding: 160px 0px;
-  background-image: url(assets/images/contact-bg.png);
+  padding: 60px 0px;
+  background-image: url(assets/images/orange-background-wave.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
