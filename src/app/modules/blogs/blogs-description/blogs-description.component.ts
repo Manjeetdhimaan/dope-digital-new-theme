@@ -28,7 +28,7 @@ export class BlogsDescriptionComponent implements OnInit, OnDestroy, DoCheck {
             this.blogService.blogsArray.map((a: any) => {
               if (param['blog'].toLowerCase() == a.urlTitle.toLowerCase().split(' ').join('-')) {
                 this.blog = a;
-                this.titleService.setTitle(this.capitalizeFirstLetter(a.urlTitle) + " - Dope Digital");
+                // this.titleService.setTitle(this.capitalizeFirstLetter(a.urlTitle) + " - Dope Digital");
                 this.latestBlogs = this.blogService.blogsArray.slice(-8).reverse();
                 this.isLoading = false;
               }
@@ -45,7 +45,7 @@ export class BlogsDescriptionComponent implements OnInit, OnDestroy, DoCheck {
         if (this.router.url.toLowerCase() == "/blogs/" + a.urlTitle.toLowerCase().split(' ').join('-')) {
           this.router.url.toLowerCase();
           this.blog = a;
-          this.titleService.setTitle(this.capitalizeFirstLetter(a.urlTitle) + " - Dope Digital");
+          // this.titleService.setTitle(this.capitalizeFirstLetter(a.urlTitle) + " - Dope Digital");
           // this.titleService.setTitle("Some title");
           // let blogs = this.blogService.blogsArray.slice(-10).reverse();
           // this.moreBlogs = blogs.sort(() => 0.5 - Math.random());
@@ -69,11 +69,11 @@ export class BlogsDescriptionComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   ngDoCheck() {
-    if (this.router.url.toLowerCase() == "/blogs/" + this.blog?.urlTitle.toLowerCase().split(' ').join('-')) {
-      this.router.url.toLowerCase();
-      this.titleService.setTitle(this.capitalizeFirstLetter(this.blog?.urlTitle) + " - Dope Digital");
-      this.isLoading = false;
-    }
+    // if (this.router.url.toLowerCase() == "/blogs/" + this.blog?.urlTitle.toLowerCase().split(' ').join('-')) {
+    //   this.router.url.toLowerCase();
+    //   this.titleService.setTitle(this.capitalizeFirstLetter(this.blog?.urlTitle) + " - Dope Digital");
+    //   this.isLoading = false;
+    // }
   }
 
   capitalizeFirstLetter(string: String) {
@@ -88,7 +88,7 @@ export class BlogsDescriptionComponent implements OnInit, OnDestroy, DoCheck {
     this.blog = blog;
 
     const selectedBlog = blog.urlTitle.toLowerCase().split(' ').join('-');
-    this.titleService.setTitle(this.capitalizeFirstLetter(blog.urlTitle) + " - Dope Digital");
+    // this.titleService.setTitle(this.capitalizeFirstLetter(blog.urlTitle) + " - Dope Digital");
     this.router.navigate(['/blogs/', selectedBlog]);
   }
 
