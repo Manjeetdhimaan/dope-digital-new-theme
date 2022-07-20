@@ -5,7 +5,6 @@ import { ContactComponent } from "./contact/contact.component";
 import { PagenotfoundComponent } from "./pagenotfound/pagenotfound.component";
 import { CoresModule } from "./core/core-module";
 import { ClientsService } from "../services/clients.service";
-import { BlogsService } from "../services/blogs.service";
 import { DirectivesModule } from "../directives/directives-module";
 import { UIComponentsModule } from "../UI-components/UI-components.module";
 import { BlogsModule } from "./blogs/blogs-module";
@@ -29,7 +28,7 @@ import { BlogsModule } from "./blogs/blogs-module";
         ContactComponent,
         PagenotfoundComponent,
     ],
-    providers: [ClientsService, BlogsService]
+    providers: [ClientsService]
 })
 
 export class ComponentsModule { }

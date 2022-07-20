@@ -1,6 +1,7 @@
 <!-- <app-header></app-header> -->
 <!-- blog details part start -->
-<section class="blog-details section" style="margin-top:2rem">
+<app-loading *ngIf="isLoading"></app-loading>
+<section *ngIf="!isLoading" class="blog-details section" style="margin-top:2rem">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 wow" animation="fadeInLeft" delay="100" duration="800" offset="1500" triggerOnce="true">
@@ -19,18 +20,18 @@
         </article>
         <article class="post">
           <div class="post-content">
-            <h2 class="boldH2">{{ blog.subTitles[0] }}</h2>
+            <h2 class="boldH2">{{ blog?.subTitles[0] }}</h2>
            
-            <div *ngFor="let fact of blog.subTitleFacts">
+            <div *ngFor="let fact of blog?.subTitleFacts">
                 <p [innerHTML]="fact.fact"></p>
             </div>
-            <h2 class="boldH2" *ngIf="blog.subTitles[1]">{{ blog.subTitles[1] }}</h2>
+            <h2 class="boldH2" *ngIf="blog?.subTitles[1]">{{ blog?.subTitles[1] }}</h2>
 
-            <div *ngFor="let fact of blog.subTitleFactTitles">
+            <div *ngFor="let fact of blog?.subTitleFactTitles">
               <p [innerHTML]="fact.point"></p>
           </div>
 
-            <div style="margin-left:4%;" *ngFor="let points of blog.subTitleFactPoints; let i= index;">
+            <div style="margin-left:4%;" *ngFor="let points of blog?.subTitleFactPoints; let i= index;">
              
                <ol type="1" id="containerIntro" class="list-inline"  >
                 
@@ -50,10 +51,10 @@
           <br>
           <br>
             <!-- blockquote -->
-            <h3 *ngIf="blog.finalNotesHeader" [innerHTML]="blog.finalNotesHeader"></h3>
+            <h3 *ngIf="blog?.finalNotesHeader" [innerHTML]="blog?.finalNotesHeader"></h3>
             <article class="post" style="margin-top:6%">
               <!-- <h4>Final Notes</h4> -->
-              <div *ngFor="let note of blog.finalNotes">
+              <div *ngFor="let note of blog?.finalNotes">
                 <p data-aos="fade-left" data-aos-duration="1000" [innerHTML]="note.finalNote"></p>
               </div>
             </article>
@@ -78,7 +79,7 @@
                   <a >
                     <h5 [innerHTML]="blog?.title"></h5>
                   </a>
-                  <h6>{{ blog.dateOfCreatingBlog }}</h6>
+                  <h6>{{ blog?.dateOfCreatingBlog }}</h6>
                 </div>
               </li>
             </a>
@@ -90,4 +91,4 @@
   </div>
 </section>
 <!-- blog details part end -->
-<app-footer></app-footer>
+<app-footer *ngIf="!isLoading"></app-footer>

@@ -9,7 +9,6 @@ import { BlogsModule } from "../blogs/blogs-module";
 import { UIComponentsModule } from "src/app/UI-components/UI-components.module";
 import { CoresModule } from "../core/core-module";
 import { ClientsService } from "src/app/services/clients.service";
-import { BlogsService } from "src/app/services/blogs.service";
 
 
 @NgModule({
@@ -30,7 +29,7 @@ import { BlogsService } from "src/app/services/blogs.service";
     exports: [
         HomeComponent
     ],
-    providers: [ClientsService, BlogsService]
+    providers: [ClientsService]
 })
 
 export class HomeModule { }

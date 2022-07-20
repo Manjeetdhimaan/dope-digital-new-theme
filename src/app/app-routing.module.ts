@@ -8,6 +8,9 @@ const routes: Routes = [
   {
     path: '', component: HomeComponent, data: { metaUrl:'', title: 'Dope Digital'}
   },
+  { 
+    path: '404notfound', component: PagenotfoundComponent, data: { title: 'Page not Found' } 
+  },
   {
     path: 'about', loadChildren: () => import('./modules/about/about-module').then(m => m.AboutModule), data: {title: 'ABOUT - Dope Digital', metaUrl:'about'} 
   },
@@ -25,13 +28,11 @@ const routes: Routes = [
   {
     path: 'contact', component: ContactComponent, data: {title: 'CONTACT - Dope Digital', metaUrl:'contact'}
   },
-
+  
   {
     path: ':services',  loadChildren: () => import('./modules/services-module/services/all-services/all-services.module').then(m => m.AllServicesModule), data: {title: 'Services - Dope Digital', metaUrl:'services'}
   },
-  { 
-    path: '404notfound', component: PagenotfoundComponent, data: { title: 'Page not Found' } 
-  },
+  
   {
     path: '**', pathMatch: 'full', redirectTo: '404notfound'
   },

@@ -3,14 +3,15 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 
 import { ClientsService } from "../services/clients.service";
-import { BlogsService } from "../services/blogs.service";
 import { DirectivesModule } from "../directives/directives-module";
 import { SingleServiceComponent } from "./single-service/single-service.component";
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
     declarations: [
-        SingleServiceComponent
+        SingleServiceComponent,
+        LoadingComponent
     ],
 
     imports: [
@@ -20,9 +21,10 @@ import { SingleServiceComponent } from "./single-service/single-service.componen
     ],
 
     exports: [
-        SingleServiceComponent
+        SingleServiceComponent,
+        LoadingComponent
     ],
-    providers: [ClientsService, BlogsService]
+    providers: [ClientsService]
 })
 
 export class UIComponentsModule { }

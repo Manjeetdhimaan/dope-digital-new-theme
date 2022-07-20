@@ -8,7 +8,8 @@ import { BlogsDescriptionComponent } from "./blogs-description/blogs-description
 import { BlogsRoutingModule } from "./blogs-routing.module";
 import { DirectivesModule } from "src/app/directives/directives-module";
 import { ClientsService } from "src/app/services/clients.service";
-import { BlogsService } from "src/app/services/blogs.service";
+import { BlogsService } from "src/app/modules/blogs/blogs.service";
+import { UIComponentsModule } from "src/app/UI-components/UI-components.module";
 
 @NgModule({
     declarations:[
@@ -21,12 +22,13 @@ imports:[
     RouterModule,
     CoresModule,
     DirectivesModule,
-    BlogsRoutingModule
+    BlogsRoutingModule,
+    UIComponentsModule
  ],
 exports: [
     BlogsHeadlineComponent,
     BlogsDescriptionComponent
 ],
-providers: [ClientsService, BlogsService]
+providers: [ClientsService]
 })
 export class BlogsModule{}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BlogsService } from 'src/app/services/blogs.service';
+import { BlogsService } from 'src/app/modules/blogs/blogs.service';
 
 @Component({
   selector: 'app-footer',
@@ -15,8 +15,11 @@ export class FooterComponent implements OnInit {
   isLoading: boolean = false;
   ngOnInit(): void {
     this.isLoading = true;
-    this.latestBlogs= this.blogService.getBlogs().slice(-3).reverse();
-    this.isLoading = false;
+    this.blogService.getBlogs().then((blogs:any) => {
+      this.latestBlogs = blogs.slice(-4).reverse()
+    })
+    // this.latestBlogs= this.blogService.blogsArray.slice(-3).reverse();
+    
   }
 
   onNavigateToBlog(blog:any) {

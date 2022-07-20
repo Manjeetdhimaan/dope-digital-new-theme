@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
   // changing header on scrolling down
   @HostListener('window:scroll', ['$event'])
   checkScroll() {
-      this.isSticky = window.pageYOffset >= 100;
+      this.isSticky = window.pageYOffset >= 90;
   }
 
   constructor(private router: Router, private dataService: DataService, private renderer: Renderer2) {
