@@ -12,15 +12,12 @@ export class TitleService {
     capitalizeFirstLetter(string: String) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
+    
     blogs: any;
     isSingleService:boolean= false;
     isBlog:boolean = false
     constructor(private titleService: Title, private router: Router, private activatedRoute: ActivatedRoute, private dataService: DataService, private metaService: Meta, private http: HttpClient) {
         //updating app title and meta tags.
-        this.http.get(`http://localhost:4040/blogs`).subscribe(async (res: any) => {
-            await res;
-            this.blogs = res;
-        });
         const appTitle = this.titleService.getTitle();
         // setTimeout(() => {
 

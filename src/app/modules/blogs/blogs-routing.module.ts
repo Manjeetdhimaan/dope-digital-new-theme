@@ -5,7 +5,7 @@ import { BlogsHeadlineComponent } from './blogs-headline/blogs-headline.componen
 
 const routes: Routes = [
     { path: '', component: BlogsHeadlineComponent},
-    { path: ':blog', component: BlogsDescriptionComponent},
+    { path: ':blog', component: BlogsDescriptionComponent, data: { isBlog: 'BLOGS - Dope Digital' }},
 ];
 
 @NgModule({

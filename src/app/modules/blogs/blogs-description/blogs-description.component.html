@@ -1,7 +1,7 @@
 <!-- <app-header></app-header> -->
 <!-- blog details part start -->
 <app-loading *ngIf="isLoading"></app-loading>
-<section *ngIf="!isLoading" class="blog-details section" style="margin-top:2rem">
+<section *ngIf="!isLoading && !isError" class="blog-details section" style="margin-top:2rem">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 wow" animation="fadeInLeft" delay="100" duration="800" offset="1500" triggerOnce="true">
@@ -90,5 +90,18 @@
     </div>
   </div>
 </section>
+
+<div *ngIf="!isLoading && isError" id="blog" class="our-blog section bottom-margin">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 wow" animation="fadeInLeft" delay="100" duration="800" offset="1500" triggerOnce="true">
+        <div class="section-heading">
+          <h2>Error while loading blogs</h2>
+          <!-- <h2>Check Out What Is <em>Trending</em> In Our Latest <span>News</span></h2> -->
+        </div>
+      </div>
+      </div>
+      </div>
+</div>
 <!-- blog details part end -->
 <app-footer *ngIf="!isLoading"></app-footer>

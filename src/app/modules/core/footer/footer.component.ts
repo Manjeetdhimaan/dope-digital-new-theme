@@ -23,7 +23,6 @@ export class FooterComponent implements OnInit {
   }
 
   onNavigateToBlog(blog:any) {
-    console.log(blog)
     window.scrollTo({
       behavior:'smooth',
       top:0

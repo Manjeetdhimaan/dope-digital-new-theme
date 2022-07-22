@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'blogs',
     loadChildren: () => import('./modules/blogs/blogs-module').then(m => m.BlogsModule),
-    data: { title: 'BLOGS - Dope Digital', metaUrl:'blogs' }
+    data: { title: 'BLOGS - Dope Digital', metaUrl:'blogs', isBlog: 'New' }
   },
   {
     path: 'contact', component: ContactComponent, data: {title: 'CONTACT - Dope Digital', metaUrl:'contact'}

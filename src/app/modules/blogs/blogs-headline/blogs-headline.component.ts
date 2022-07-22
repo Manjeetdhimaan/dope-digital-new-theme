@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BlogsService } from 'src/app/modules/blogs/blogs.service';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
+import { ToasTMessageService } from 'src/app/services/toastr.service';
+
 @Component({
   selector: 'app-blogs-headline',
   templateUrl: './blogs-headline.component.html',
@@ -9,17 +11,24 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BlogsHeadlineComponent implements OnInit {
 
-  constructor(private blogService: BlogsService, private router: Router, private http: HttpClient) { }
+  constructor(private blogService: BlogsService, private router: Router, private toastService: ToasTMessageService) { }
   @Input() isHeaderFooter:boolean = true;
   latestBlogs:any[];
   isLoading:boolean=false;
+  isError: boolean = false;
   ngOnInit(): void {
+
     this.isLoading=true;
        this.blogService.getBlogs().then((blogs:any) => {
         this.latestBlogs = blogs.slice(-4).reverse();
+        this.toastService.success('Blogs loaded successfully');
         this.isLoading = false;
+        this.isError = false;
       }).catch((err) => {
-        console.log(err)
+        console.log(err);
+        this.isLoading = false;
+        this.isError = true;
+        this.toastService.error(err.message);
       })
 
    

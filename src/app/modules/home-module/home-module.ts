@@ -9,7 +9,7 @@ import { BlogsModule } from "../blogs/blogs-module";
 import { UIComponentsModule } from "src/app/UI-components/UI-components.module";
 import { CoresModule } from "../core/core-module";
 import { ClientsService } from "src/app/services/clients.service";
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
     declarations: [
@@ -24,7 +24,8 @@ import { ClientsService } from "src/app/services/clients.service";
         AboutModule,
         BlogsModule,
         UIComponentsModule,
-        CoresModule
+        CoresModule,
+        CarouselModule
     ],
     exports: [
         HomeComponent
